@@ -74,7 +74,7 @@ export function Search() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 py-8">
+    <div className="w-full max-w-4xl mx-auto space-y-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -215,8 +215,10 @@ export function Search() {
               transition={{ duration: 0.3 }}
               className="rounded-lg border bg-card shadow-lg overflow-hidden"
             >
-              <div className="overflow-x-auto">
-                <Table>
+            {error && <p className="text-red-500">{error}</p>}
+      {results.length > 0 && (
+        <div className="overflow-x-auto mt-6">
+          <Table>
                   <TableHeader>
                     <TableRow className="bg-muted/50">
                       <TableHead className="w-[180px] font-semibold">Registration No.</TableHead>
@@ -251,6 +253,7 @@ export function Search() {
                   </TableBody>
                 </Table>
               </div>
+      )}
             </motion.div>
           )}
 
